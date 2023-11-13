@@ -3,6 +3,10 @@
 import * as React from "react";
 import { NextUIProvider } from "@nextui-org/react";
 
-export function NextUI({ children }: { children: React.ReactNode }) {
-  return <NextUIProvider>{children}</NextUIProvider>;
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
+  children: React.ReactNode;
+}
+
+export function NextUI({ children, ...props }: Props) {
+  return <NextUIProvider {...props}>{children}</NextUIProvider>;
 }
